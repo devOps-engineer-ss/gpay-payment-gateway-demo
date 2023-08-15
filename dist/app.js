@@ -34,6 +34,12 @@ const app = (0, express_1.default)();
 const http = __importStar(require("http"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const path = __importStar(require("path"));
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*'); // Replace * with your allowed domain(s)
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+});
 app.use(express_1.default.static('public')); // Serve static files from the 'public' folder
 app.use(body_parser_1.default.json({ limit: "100mb" }));
 app.use(body_parser_1.default.urlencoded({ limit: "100mb", extended: true }));
@@ -46,6 +52,13 @@ app.get('/v1/api/health', (req, res) => {
     res.send({
         success: true,
         msg: "Gpay Payment Express is successfully running...."
+    });
+});
+app.post('/v1/api/gpay-payment-processing', (req, res) => {
+    console.log('req.body :>> ', req.body);
+    res.send({
+        success: true,
+        msg: "gpay-payment-processing...."
     });
 });
 // Set up a route to serve your HTML page
