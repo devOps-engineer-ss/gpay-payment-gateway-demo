@@ -24,8 +24,8 @@ app.get('/v1/api/health', (req, res) => {
 });
 
 // Set up a route to serve your HTML page
-app.get('/v1/app/index.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'payment', 'index.html'));
+app.get('/v1/app/gpay.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'payment', 'gpay.html'));
 }); 
 
 // Starting the server on the port
