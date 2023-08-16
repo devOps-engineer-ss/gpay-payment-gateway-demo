@@ -29,12 +29,12 @@ app.get('/v1/api/health', (req, res) => {
   });
 });
 
-app.post('/v1/api/gpay-payment-processing', (req, res) => {
+app.post('/v1/api/gpay-process-payment', (req, res) => {
   console.log('req.body :>> ', req.body);
 
   res.send({
     success: true,
-    msg: "gpay-payment-processing...."
+    msg: "gpay-process-payment...."
   });
 });
 
